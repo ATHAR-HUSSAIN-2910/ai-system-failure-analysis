@@ -5,6 +5,7 @@ from modules.error_analysis import analyze_errors
 from modules.root_cause_analysis import detect_root_cause
 from modules.report_generator import generate_report
 from modules.charts import plot_error_frequency, plot_log_levels, plot_error_timeline
+from modules.pdf_report_generator import generate_pdf_report
 
 
 # Load logs
@@ -78,3 +79,12 @@ print("Report saved to: output/reports/system_failure_report.txt")
 plot_error_frequency(error_counts)
 plot_log_levels(logs)
 plot_error_timeline(logs)
+
+generate_pdf_report(
+    failure_start,
+    failure_end,
+    downtime,
+    total_errors,
+    error_counts,
+    root_cause
+)
